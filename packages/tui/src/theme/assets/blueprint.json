@@ -1,0 +1,226 @@
+{
+  "defs": {
+    "ground": "#0E1420",
+    "rule": "#2A3A52",
+    "ink": "#C8D4E4",
+    "muted": "#6B7C93",
+    "accent": "#F2A93B",
+    "signal": "#4FC3B0",
+    "add": "#6FCF6A",
+    "del": "#E5606A",
+    "addBg": "#1c2e2a",
+    "delBg": "#2c1f2a",
+    "addLineBg": "#233d30",
+    "delLineBg": "#3d2530"
+  },
+  "theme": {
+    "primary": {
+      "dark": "accent",
+      "light": "accent"
+    },
+    "secondary": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "accent": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "error": {
+      "dark": "del",
+      "light": "del"
+    },
+    "warning": {
+      "dark": "accent",
+      "light": "accent"
+    },
+    "success": {
+      "dark": "add",
+      "light": "add"
+    },
+    "info": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "text": {
+      "dark": "ink",
+      "light": "ink"
+    },
+    "textMuted": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "selectedListItemText": {
+      "dark": "ground",
+      "light": "ground"
+    },
+    "background": {
+      "dark": "ground",
+      "light": "ground"
+    },
+    "backgroundPanel": {
+      "dark": "ground",
+      "light": "ground"
+    },
+    "backgroundElement": {
+      "dark": "ground",
+      "light": "ground"
+    },
+    "backgroundMenu": {
+      "dark": "ground",
+      "light": "ground"
+    },
+    "border": {
+      "dark": "rule",
+      "light": "rule"
+    },
+    "borderSubtle": {
+      "dark": "rule",
+      "light": "rule"
+    },
+    "borderActive": {
+      "dark": "accent",
+      "light": "accent"
+    },
+    "diffAdded": {
+      "dark": "add",
+      "light": "add"
+    },
+    "diffRemoved": {
+      "dark": "del",
+      "light": "del"
+    },
+    "diffContext": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "diffHunkHeader": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "diffHighlightAdded": {
+      "dark": "add",
+      "light": "add"
+    },
+    "diffHighlightRemoved": {
+      "dark": "del",
+      "light": "del"
+    },
+    "diffAddedBg": {
+      "dark": "addBg",
+      "light": "addBg"
+    },
+    "diffRemovedBg": {
+      "dark": "delBg",
+      "light": "delBg"
+    },
+    "diffContextBg": {
+      "dark": "ground",
+      "light": "ground"
+    },
+    "diffLineNumber": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "addLineBg",
+      "light": "addLineBg"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "delLineBg",
+      "light": "delLineBg"
+    },
+    "markdownText": {
+      "dark": "ink",
+      "light": "ink"
+    },
+    "markdownHeading": {
+      "dark": "accent",
+      "light": "accent"
+    },
+    "markdownLink": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "markdownLinkText": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "markdownCode": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "markdownBlockQuote": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "markdownEmph": {
+      "dark": "ink",
+      "light": "ink"
+    },
+    "markdownStrong": {
+      "dark": "ink",
+      "light": "ink"
+    },
+    "markdownHorizontalRule": {
+      "dark": "rule",
+      "light": "rule"
+    },
+    "markdownListItem": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "markdownListEnumeration": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "markdownImage": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "markdownImageText": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "markdownCodeBlock": {
+      "dark": "ink",
+      "light": "ink"
+    },
+    "syntaxComment": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "syntaxKeyword": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "syntaxFunction": {
+      "dark": "ink",
+      "light": "ink"
+    },
+    "syntaxVariable": {
+      "dark": "ink",
+      "light": "ink"
+    },
+    "syntaxString": {
+      "dark": "add",
+      "light": "add"
+    },
+    "syntaxNumber": {
+      "dark": "accent",
+      "light": "accent"
+    },
+    "syntaxType": {
+      "dark": "signal",
+      "light": "signal"
+    },
+    "syntaxOperator": {
+      "dark": "muted",
+      "light": "muted"
+    },
+    "syntaxPunctuation": {
+      "dark": "muted",
+      "light": "muted"
+    }
+  }
+}

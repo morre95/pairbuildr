@@ -1,0 +1,8 @@
+Record your audit verdict. This is the only way to report, and your turn is not complete
+until you call it.
+
+Judge the CONTRACT, not the effort. status=complete means the acceptance criteria are
+met. integrity=clean means the executor's claims match evidence you checked yourself.
+contract=aligned means the work still serves the original criteria.
+
+Listing any blocking constraint forces status to incomplete, so be deliberate.

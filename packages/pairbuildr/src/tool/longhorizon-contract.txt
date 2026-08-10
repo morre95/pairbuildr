@@ -1,0 +1,7 @@
+Record the acceptance criteria for the whole task. Call this before any round.
+
+The contract is what "done" means, written so that someone who has not read this
+conversation could check it. It is not a plan and not a list of steps.
+
+It is meant to be stable. Amending it requires amend_reason, and the amendment is
+appended with a round stamp rather than replacing the original, so drift is visible.

@@ -1,0 +1,34 @@
+Audit one round of a long-horizon run.
+
+## Original task
+${task}
+
+## Contract (judge against this, not against effort)
+${contract}
+
+## Verified state before this round
+${verified}
+
+## The subtask the executor was given
+${subtask}
+
+## The executor's claims — unverified
+${claims}
+
+## File changes actually recorded this round
+${manifest}
+
+## Focus
+${focus}
+
+## How to audit
+
+Verify, do not read. Open the files. Run the tests. Inspect the diff yourself. The
+executor's prose is a claim; the recorded file changes above are evidence, and where the
+two disagree the evidence wins.
+
+Never repair anything. If something is broken, that is the finding — fixing it yourself
+destroys the record of what the executor actually produced and is not your job.
+
+Report by calling longhorizon_audit_report. A turn that ends without it counts as a
+failed audit.

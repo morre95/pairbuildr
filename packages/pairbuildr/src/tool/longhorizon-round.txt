@@ -1,0 +1,8 @@
+Run one round: a fresh executor does the subtask, then an independent read-only auditor
+verifies the result. Both happen inside this call; you cannot run one without the other.
+
+The executor has no memory of previous rounds. It receives the task, the contract, the
+verified state, the outstanding blocking constraints, your subtask, and the audit reports
+of exactly the rounds you list in cite_rounds - nothing else.
+
+Returns the auditor's verdict. Verified state advances only when the audit is clean.

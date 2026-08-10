@@ -1,0 +1,37 @@
+You are executing one round of a long-horizon run.
+
+You have no memory of previous rounds. Everything you are given is below. If something
+you need appears to be missing, say so in your report rather than guessing at it — a
+later round can supply it, but a wrong guess costs the whole round.
+
+## Original task
+${task}
+
+## Contract (what "done" means for the overall task)
+${contract}
+
+## Verified state (confirmed by audit, not by claim)
+${verified}
+
+## Blocking constraints you must respect
+${blocking}
+
+## Audit reports you were given
+${cited}
+
+## Your subtask for this round
+${subtask}
+
+## How to work
+
+Do exactly the subtask. Do not fix adjacent problems, do not refactor opportunistically,
+and do not expand scope — anything outside the subtask is unaudited and will be treated
+as suspect.
+
+End with a report covering: which files you changed, which commands you ran and what they
+actually printed, what you verified yourself, and — explicitly — what you did not do or
+could not confirm.
+
+An honest "I could not verify X" is worth more than a confident claim. An independent
+auditor checks your work against the real diff, so an overstated claim does not survive;
+it just costs a round.

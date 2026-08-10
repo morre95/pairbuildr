@@ -1,0 +1,5 @@
+Declare the task finished.
+
+This is checked in code. It refuses unless the most recent round was audited complete,
+clean, and contract-aligned with no blocking constraints. Calling it speculatively wastes
+a turn - read the last verdict first.

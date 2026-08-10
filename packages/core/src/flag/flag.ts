@@ -1,0 +1,78 @@
+import { Config } from "effect"
+
+export function truthy(key: string) {
+  const value = process.env[key]?.toLowerCase()
+  return value === "true" || value === "1"
+}
+
+const copy = process.env["PAIRBUILDR_EXPERIMENTAL_DISABLE_COPY_ON_SELECT"]
+const fff = process.env["PAIRBUILDR_DISABLE_FFF"]
+
+function enabledByExperimental(key: string) {
+  return process.env[key] === undefined ? truthy("PAIRBUILDR_EXPERIMENTAL") : truthy(key)
+}
+
+export const Flag = {
+  OTEL_EXPORTER_OTLP_ENDPOINT: process.env["OTEL_EXPORTER_OTLP_ENDPOINT"],
+  OTEL_EXPORTER_OTLP_HEADERS: process.env["OTEL_EXPORTER_OTLP_HEADERS"],
+
+  PAIRBUILDR_AUTO_HEAP_SNAPSHOT: truthy("PAIRBUILDR_AUTO_HEAP_SNAPSHOT"),
+  PAIRBUILDR_GIT_BASH_PATH: process.env["PAIRBUILDR_GIT_BASH_PATH"],
+  PAIRBUILDR_CONFIG: process.env["PAIRBUILDR_CONFIG"],
+  PAIRBUILDR_CONFIG_CONTENT: process.env["PAIRBUILDR_CONFIG_CONTENT"],
+  PAIRBUILDR_DISABLE_AUTOUPDATE: truthy("PAIRBUILDR_DISABLE_AUTOUPDATE"),
+  PAIRBUILDR_ALWAYS_NOTIFY_UPDATE: truthy("PAIRBUILDR_ALWAYS_NOTIFY_UPDATE"),
+  PAIRBUILDR_DISABLE_PRUNE: truthy("PAIRBUILDR_DISABLE_PRUNE"),
+  PAIRBUILDR_DISABLE_TERMINAL_TITLE: truthy("PAIRBUILDR_DISABLE_TERMINAL_TITLE"),
+  PAIRBUILDR_SHOW_TTFD: truthy("PAIRBUILDR_SHOW_TTFD"),
+  PAIRBUILDR_DISABLE_AUTOCOMPACT: truthy("PAIRBUILDR_DISABLE_AUTOCOMPACT"),
+  PAIRBUILDR_DISABLE_MODELS_FETCH: truthy("PAIRBUILDR_DISABLE_MODELS_FETCH"),
+  PAIRBUILDR_DISABLE_MOUSE: truthy("PAIRBUILDR_DISABLE_MOUSE"),
+  PAIRBUILDR_FAKE_VCS: process.env["PAIRBUILDR_FAKE_VCS"],
+  PAIRBUILDR_SERVER_PASSWORD: process.env["PAIRBUILDR_SERVER_PASSWORD"],
+  PAIRBUILDR_SERVER_USERNAME: process.env["PAIRBUILDR_SERVER_USERNAME"],
+  PAIRBUILDR_DISABLE_FFF: fff === undefined ? process.platform === "win32" : truthy("PAIRBUILDR_DISABLE_FFF"),
+
+  // Experimental
+  PAIRBUILDR_EXPERIMENTAL_FILEWATCHER: Config.boolean("PAIRBUILDR_EXPERIMENTAL_FILEWATCHER").pipe(
+    Config.withDefault(false),
+  ),
+  PAIRBUILDR_EXPERIMENTAL_DISABLE_FILEWATCHER: Config.boolean("PAIRBUILDR_EXPERIMENTAL_DISABLE_FILEWATCHER").pipe(
+    Config.withDefault(false),
+  ),
+  PAIRBUILDR_EXPERIMENTAL_DISABLE_COPY_ON_SELECT:
+    copy === undefined ? process.platform === "win32" : truthy("PAIRBUILDR_EXPERIMENTAL_DISABLE_COPY_ON_SELECT"),
+  PAIRBUILDR_MODELS_URL: process.env["PAIRBUILDR_MODELS_URL"],
+  PAIRBUILDR_MODELS_PATH: process.env["PAIRBUILDR_MODELS_PATH"],
+  PAIRBUILDR_DB: process.env["PAIRBUILDR_DB"],
+
+  PAIRBUILDR_WORKSPACE_ID: process.env["PAIRBUILDR_WORKSPACE_ID"],
+  PAIRBUILDR_EXPERIMENTAL_WORKSPACES: enabledByExperimental("PAIRBUILDR_EXPERIMENTAL_WORKSPACES"),
+
+  // Evaluated at access time (not module load) because tests, the CLI, and
+  // external tooling set these env vars at runtime.
+  get PAIRBUILDR_DISABLE_PROJECT_CONFIG() {
+    return truthy("PAIRBUILDR_DISABLE_PROJECT_CONFIG")
+  },
+  get PAIRBUILDR_EXPERIMENTAL_REFERENCES() {
+    return enabledByExperimental("PAIRBUILDR_EXPERIMENTAL_REFERENCES")
+  },
+  get PAIRBUILDR_TUI_CONFIG() {
+    return process.env["PAIRBUILDR_TUI_CONFIG"]
+  },
+  get PAIRBUILDR_CONFIG_DIR() {
+    return process.env["PAIRBUILDR_CONFIG_DIR"]
+  },
+  get PAIRBUILDR_PURE() {
+    return truthy("PAIRBUILDR_PURE")
+  },
+  get PAIRBUILDR_PERMISSION() {
+    return process.env["PAIRBUILDR_PERMISSION"]
+  },
+  get PAIRBUILDR_PLUGIN_META_FILE() {
+    return process.env["PAIRBUILDR_PLUGIN_META_FILE"]
+  },
+  get PAIRBUILDR_CLIENT() {
+    return process.env["PAIRBUILDR_CLIENT"] ?? "cli"
+  },
+}
