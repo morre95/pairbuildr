@@ -2,7 +2,6 @@ import { PermissionV1 } from "@pairbuildr/core/v1/permission"
 import type { Auth } from "@/auth"
 import { SessionV1 } from "@pairbuildr/core/v1/session"
 import type { RuntimeFlags } from "@/effect/runtime-flags"
-import { InstanceState } from "@/effect/instance-state"
 import { Permission } from "@/permission"
 import type { Agent } from "@/agent/agent"
 import type { MessageV2 } from "../message-v2"
@@ -174,10 +173,6 @@ export const prepare = Effect.fn("LLMRequestPrep.prepare")(function* (input: Pre
     })
   }
 
-  const pairbuildrProjectID = input.model.providerID.startsWith("pairbuildr")
-    ? (yield* InstanceState.context).project.id
-    : undefined
-
   return {
     system,
     messages,
@@ -185,20 +180,10 @@ export const prepare = Effect.fn("LLMRequestPrep.prepare")(function* (input: Pre
     params,
     messageTransformOptions: options,
     headers: {
-      ...(input.model.providerID.startsWith("pairbuildr")
-        ? {
-            ...(pairbuildrProjectID ? { "x-pairbuildr-project": pairbuildrProjectID } : {}),
-            "x-pairbuildr-session": input.sessionID,
-            "x-pairbuildr-request": input.user.id,
-            "x-pairbuildr-client": input.flags.client,
-            "User-Agent": USER_AGENT,
-          }
-        : {
-            "x-session-affinity": input.sessionID,
-            "X-Session-Id": input.sessionID,
-            ...(input.parentSessionID ? { "x-parent-session-id": input.parentSessionID } : {}),
-            "User-Agent": USER_AGENT,
-          }),
+      "x-session-affinity": input.sessionID,
+      "X-Session-Id": input.sessionID,
+      ...(input.parentSessionID ? { "x-parent-session-id": input.parentSessionID } : {}),
+      "User-Agent": USER_AGENT,
       ...input.model.headers,
       ...headers,
     },

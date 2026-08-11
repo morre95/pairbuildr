@@ -53,13 +53,7 @@ export const ModelsCommand = effectCmd({
       return
     }
 
-    const ids = Object.keys(providers).sort((a, b) => {
-      const aIsPairbuildr = a.startsWith("pairbuildr")
-      const bIsPairbuildr = b.startsWith("pairbuildr")
-      if (aIsPairbuildr && !bIsPairbuildr) return -1
-      if (!aIsPairbuildr && bIsPairbuildr) return 1
-      return a.localeCompare(b)
-    })
+    const ids = Object.keys(providers).sort((a, b) => a.localeCompare(b))
 
     for (const providerID of ids) print(ProviderV2.ID.make(providerID), args.verbose)
   }),
