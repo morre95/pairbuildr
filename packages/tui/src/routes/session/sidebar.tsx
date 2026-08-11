@@ -5,6 +5,7 @@ import { useTheme } from "../../context/theme"
 import { useTuiConfig } from "../../config"
 import { InstallationChannel, InstallationVersion } from "@pairbuildr/core/installation/version"
 import { usePluginRuntime } from "../../plugin/runtime"
+import { LINES } from "../../logo"
 
 import { getScrollAcceleration } from "../../util/scroll"
 import { WorkspaceLabel } from "../../component/workspace-label"
@@ -89,9 +90,9 @@ export function Sidebar(props: { sessionID: string; overlay?: boolean }) {
         <box flexShrink={0} gap={1} paddingTop={1}>
           <pluginRuntime.Slot name="sidebar_footer" mode="single_winner" session_id={props.sessionID}>
             <text fg={theme.textMuted}>
-              <span style={{ fg: theme.success }}>•</span> <b>Open</b>
+              <span style={{ fg: theme.success }}>•</span>{" "}
               <span style={{ fg: theme.text }}>
-                <b>Code</b>
+                <b>{LINES.name}</b>
               </span>{" "}
               <span>{InstallationVersion}</span>
             </text>
