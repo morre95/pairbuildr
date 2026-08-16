@@ -184,6 +184,8 @@ describe("plugin.codex", () => {
     expect(models["gpt-5.6-sol"]?.limit).toEqual({ context: 500_000, input: 372_000, output: 128_000 })
     expect(models["gpt-5.6-terra"]?.limit).toEqual({ context: 500_000, input: 372_000, output: 128_000 })
     expect(models["gpt-5.6-luna"]?.limit).toEqual({ context: 500_000, input: 372_000, output: 128_000 })
+    expect(models["gpt-5.6-sol"]?.options.billingMode).toBe("subscription")
+    expect(models["gpt-5.6-sol"]?.cost).toEqual({ input: 0, output: 0, cache: { read: 0, write: 0 } })
     expect(models["gpt-5.4-pro"]).toBeUndefined()
     expect(models["gpt-5.7-pro"]).toBeDefined()
     expect(models["gpt-5.6-sol-high"]).toBeDefined()

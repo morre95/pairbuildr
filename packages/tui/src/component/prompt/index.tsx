@@ -25,6 +25,7 @@ import { useRoute } from "../../context/route"
 import { useProject } from "../../context/project"
 import { useSync } from "../../context/sync"
 import { useEvent } from "../../context/event"
+import { isSubscriptionModel } from "../../util/usage"
 import { editorSelectionKey, useEditorContext, type EditorSelection } from "../../context/editor"
 import { normalizePromptContent, openEditor } from "../../editor"
 import { useExit } from "../../context/exit"
@@ -283,7 +284,7 @@ export function Prompt(props: PromptProps) {
     const cost = session?.cost ?? 0
     return {
       context: pct ? `${Locale.number(tokens)} (${pct})` : Locale.number(tokens),
-      cost: cost > 0 ? money.format(cost) : undefined,
+      cost: cost > 0 ? money.format(cost) : isSubscriptionModel(model) ? "included with subscription" : undefined,
     }
   })
 

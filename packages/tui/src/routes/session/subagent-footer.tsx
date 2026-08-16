@@ -7,6 +7,7 @@ import type { AssistantMessage } from "@pairbuildr/sdk/v2"
 import { Locale } from "../../util/locale"
 import { useTerminalDimensions } from "@opentui/solid"
 import { useCommandShortcut, usePairbuildrKeymap } from "../../keymap"
+import { isSubscriptionModel } from "../../util/usage"
 
 export function SubagentFooter() {
   const route = useRouteData("session")
@@ -50,7 +51,7 @@ export function SubagentFooter() {
 
     return {
       context: pct ? `${Locale.number(tokens)} (${pct})` : Locale.number(tokens),
-      cost: cost > 0 ? money.format(cost) : undefined,
+      cost: cost > 0 ? money.format(cost) : isSubscriptionModel(model) ? "included with subscription" : undefined,
     }
   })
 

@@ -294,6 +294,10 @@ export async function CodexAuthPlugin(input: PluginInput, options: CodexAuthPlug
               modelID,
               {
                 ...model,
+                options: {
+                  ...model.options,
+                  billingMode: "subscription",
+                },
                 cost: {
                   input: 0,
                   output: 0,
