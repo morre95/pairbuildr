@@ -17,7 +17,7 @@ no account, no hosted gateway, and no telemetry.
 Requires [Bun](https://bun.com) 1.3 or newer to build from source.
 
 ```bash
-git clone https://github.com/<OWNER>/<REPO>
+git clone https://github.com/morre95/pairbuildr.git
 cd <REPO>
 bun install
 ./packages/pairbuildr/script/build.ts --single
