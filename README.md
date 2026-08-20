@@ -18,7 +18,7 @@ Requires [Bun](https://bun.com) 1.3 or newer to build from source.
 
 ```bash
 git clone https://github.com/morre95/pairbuildr.git
-cd <REPO>
+cd pairbuildr
 bun install
 ./packages/pairbuildr/script/build.ts --single
 ```
