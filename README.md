@@ -26,8 +26,26 @@ bun install
 The binary lands at `packages/pairbuildr/dist/pairbuildr-<platform>/bin/pairbuildr`.
 Put it on your `PATH`. It is a single self-contained executable — no runtime needed.
 
+On Linux x64 with Bash, create `pairbuildr` and `pbr` commands that point to the
+locally built binary:
+
+```bash
+mkdir -p "$HOME/.local/bin"
+ln -sfn "$PWD/packages/pairbuildr/dist/pairbuildr-linux-x64/bin/pairbuildr" \
+  "$HOME/.local/bin/pairbuildr"
+ln -sfn "$HOME/.local/bin/pairbuildr" "$HOME/.local/bin/pbr"
+
+grep -qxF 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.bashrc" ||
+  echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+source "$HOME/.bashrc"
+```
+
+Because these commands are symlinks, rebuilding PairBuildr updates both of them
+automatically.
+
 ```bash
 pairbuildr --version
+pbr --version
 ```
 
 `pbr` is installed as a shorter alias for the same binary.
